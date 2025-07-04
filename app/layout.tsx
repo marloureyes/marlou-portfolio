@@ -9,15 +9,15 @@ const Roboto = localFont({
   weight: "100 200 300 400 500 600 700 800",
 });
 
-const ConsolaRegular = localFont({
-  src: "./fonts/ConsolaRegularVF.ttf",
-  variable: "--font-consola",
+const ConsolasRegular = localFont({
+  src: "./fonts/ConsolasRegularVF.ttf",
+  variable: "--font-consolas",
   weight: "400",
 });
 
-const ConsolaBold = localFont({
-  src: "./fonts/ConsolaBoldVF.ttf",
-  variable: "--font-consola-bold",
+const ConsolasBold = localFont({
+  src: "./fonts/ConsolasBoldVF.ttf",
+  variable: "--font-consolas-bold",
   weight: "700",
 });
 
@@ -52,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${Roboto.className}  ${ConsolaRegular.variable} ${ConsolaBold.variable} antialiased`}
+        className={`${Roboto.className}  ${ConsolasRegular.variable} ${ConsolasBold.variable} antialiased`}
       >
         {children}
       </body>
