@@ -1,103 +1,246 @@
+"use client";
+import Header from "@/components/Header";
+import ResizableBox from "@/components/ResizeableBox";
 import Image from "next/image";
-
+import Link from "next/link";
+import { techLogos } from "@/constants/imageMap";
+import ImageShowcase from "@/components/ImageShowcase";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import ContactForm from "@/components/ContactForm";
+import AnimatedLink from "@/components/AnimatedLink";
+import { socialLinks } from "@/constants/socialLinks";
 export default function Home() {
+  const [showModal, setShowModal] = useState(false);
+  const [reset, setReset] = useState(false);
+  const handleReset = () => {
+    setReset(true);
+    setShowModal(false);
+  };
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="items-center justify-items-center gap-16 w-full">
+      <Header />
+      <main className="flex flex-col w-full items-center">
+        <section className="items-center flex flex-col bg-[#f0eeed] rounded-bl-[250] w-full py-40 gap-9 ">
+          <Image
+            src="/images/marlou.png"
+            alt="Profile Picture"
+            width={180}
+            height={180}
+            className="rounded-full aspect-square object-cover border-white border-8"
+          />
+          <div className="items-center flex flex-col gap-4 mt-4 ">
+            <h1 className="font-bold text-8xl text-center">
+              Hi, I&apos;m{" "}
+              <span className="bg-black text-white px-5">marlou</span>
+              <br />
+              <span className="font-secondary text-7xl">
+                &lt;front-end developer/&gt;
+              </span>{" "}
+              <span className="relative before:content-[''] before:bg-white before:w-[7.25rem] before:h-[3.5625rem] before:bottom-2 before:left-9 before:absolute ">
+                <span className="relative">&amp;&amp; </span>
+              </span>
+              <br />
+              <span className="sr-only">Graphic Designer</span>
+            </h1>
+            <div className="relative max-w-[700] h-24">
+              <ResizableBox
+                width={681}
+                height={86}
+                src="/images/graphic-designer.png"
+                alt="Graphic Designer"
+                show={showModal}
+                setShow={setShowModal}
+                reset={reset}
+              />
+            </div>
+            <p className="text-2xl self-end pr-14">
+              turning ideas into interactive and beautiful designs
+            </p>
+          </div>
+        </section>
+        <section className="bg-[#f0eeed] w-full">
+          <div className="flex justify-between w-full px-52 py-36 bg-white rounded-tr-[250] rounded-bl-[250]">
+            {techLogos.map(({ src, alt }) => (
+              <ImageShowcase key={src} src={src} alt={alt} />
+            ))}
+          </div>
+        </section>
+        <section className="flex items-start justify-between w-full gap-[16px] ">
+          <div className="bg-[#f0eeed] pt-24 px-32 h-[800] w-[650] rounded-tr-[250] rounded-br-[250] ">
+            <h2 className="font-bold text-8xl text-center sr-only">Projects</h2>
+            <div className="relative h-24 w-full">
+              <ResizableBox
+                width={219}
+                height={58}
+                src="/images/Projects.png"
+                alt="Projects"
+                show={showModal}
+                setShow={setShowModal}
+                reset={reset}
+              />
+            </div>
+          </div>
+          <div className="flex items-start">
+            <p>sample image</p>
+            <div className="flex flex-col">
+              <Button>Up</Button>
+              <Button>Down</Button>
+            </div>
+          </div>
+        </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <div className="bg-[#f0eeed] w-full">
+          <div className="flex justify-between w-full h-32 bg-white rounded-tl-[250] "></div>
         </div>
+
+        <section className="flex flex-col justify-between w-full py-32 bg-[#f0eeed] rounded-tl-[180] rounded-tr-[200]">
+          <div className="flex flex-col items-center justify-between gap-14 px-56">
+            <div className="flex flex-col relative gap-4 items-center">
+              <h2 className="font-bold text-6xl text-center">
+                Let&apos;s <span className="opacity-0">Build</span>Something
+                Beautiful Together
+              </h2>
+              <div className="absolute top-2 left-33">
+                <ResizableBox
+                  src="/images/Build.png"
+                  alt="Build"
+                  width={133}
+                  height={46}
+                  show={showModal}
+                  setShow={setShowModal}
+                  reset={reset}
+                />
+              </div>
+              <p className="text-2xl">
+                Whether you need a sleek website or standout visuals, I&apos;ve
+                got you covered{" "}
+              </p>
+            </div>
+            <div className="grid grid-cols-4 gap-40 items-center justify-between">
+              <div className="flex flex-col items-left gap-4">
+                <Image
+                  src="/icons/monitor.png"
+                  width={100}
+                  height={100}
+                  alt="monitor icon"
+                />
+                <h3 className="font-bold text-[18px]">Web Development</h3>
+                <p>
+                  Responsive, fast, and modern websites using HTML, CSS,
+                  Javascript, and React.
+                </p>
+              </div>
+              <div className="flex flex-col items-left gap-4">
+                <Image
+                  src="/icons/paint.png"
+                  width={100}
+                  height={100}
+                  alt="paint icon"
+                />
+                <h3 className="font-bold text-[18px]">UI / UX Design </h3>
+                <p>
+                  Clean and user-friendly interfaces built for greater
+                  experience.
+                </p>
+              </div>
+              <div className="flex flex-col items-left gap-4">
+                <Image
+                  src="/icons/puzzle-piece.png"
+                  width={100}
+                  height={100}
+                  alt="puzzle piece icon"
+                />
+                <h3 className="font-bold text-[18px]">Branding</h3>
+                <p>
+                  Logos, color palletes, and visual identity that stand-out.
+                </p>
+              </div>
+              <div className="flex flex-col items-left gap-4">
+                <Image
+                  src="/icons/rocket.png"
+                  width={100}
+                  height={100}
+                  alt="rocket icon"
+                />
+                <h3 className="font-bold text-[18px]">Landing Pages</h3>
+                <p>
+                  High-converting landing pages marketing assets for campaigns.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="flex flex-col justify-between w-full  bg-[#f0eeed] ">
+          <div className="grid grid-cols-[1fr_2fr] items-start justify-between bg-white gap-14 pt-32 py-12  px-56 rounded-tl-[180] rounded-tr-[200]">
+            <div className="flex flex-col gap-2">
+              <div className="flex relative">
+                <h3 className="font-bold text-6xl opacity-0">Say Hello</h3>
+                <div className="absolute">
+                  <ResizableBox
+                    width={253}
+                    height={58}
+                    src="/images/say-hello.png"
+                    alt="Say hello"
+                    show={showModal}
+                    setShow={setShowModal}
+                    reset={reset}
+                  />
+                </div>
+                <Image
+                  src="/icons/hand-wave.png"
+                  alt="hand wave"
+                  width={67}
+                  height={69}
+                  className="ml-6"
+                />
+              </div>
+              <p>
+                Big ideas, small questions, or just a friendly wave — I’m
+                listening.
+              </p>
+            </div>
+            <ContactForm />
+          </div>
+        </section>
+        <section className="flex flex-col items-center gap-[16px]"></section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      <footer className="  pb-5 px-56 w-full ">
+        <div className="border-t-[1px] py-12 border-gray-100 flex justify-between w-full">
+          <p>Copyright © 2024 Marlou Reyes. All rights reserved.</p>
+          <div className="flex items-center gap-10">
+            {socialLinks.map((item) => (
+              <AnimatedLink
+                key={item.name}
+                name={item.name}
+                href={item.url}
+                color={item.color}
+              />
+            ))}
+          </div>
+        </div>
       </footer>
+      <div className="fixed top-0 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none">
+        <div
+          className={`flex transition-all duration-500 ease-out  ${
+            showModal
+              ? "opacity-100 translate-y-0 pointer-events-auto"
+              : "opacity-0 -translate-y-10"
+          } bg-black text-white shadow-md px-6 py-3 items-center gap-3 rounded-b-3xl`}
+        >
+          <p className="text-sm">
+            <span className="font-bold">Oops!</span> 🌍 You stretched or moved
+            the universe. Click here to unbend reality and go back to normal.
+          </p>
+          <Button
+            className="rounded-[6px] bg-white py-1 px-4 font-secondary-bold text-black cursor-pointer hover:bg-gray-200"
+            onClick={() => handleReset()}
+          >
+            Undo
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }
