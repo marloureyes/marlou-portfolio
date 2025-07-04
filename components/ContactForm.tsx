@@ -1,4 +1,17 @@
 "use client";
+
+declare global {
+  interface Window {
+    grecaptcha: {
+      execute: (
+        siteKey: string,
+        options: { action: string }
+      ) => Promise<string>;
+      ready: (cb: () => void) => void;
+    };
+  }
+}
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import Script from "next/script";
 import React, { useState } from "react";

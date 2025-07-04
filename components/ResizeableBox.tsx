@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState, useRef, Dispatch, SetStateAction, useEffect } from "react";
+import type { MouseEvent as ReactMouseEvent } from "react";
 interface Props {
   width: number;
   height: number;
@@ -30,7 +31,10 @@ export default function ResizableBox({
     }
   }, [reset, width, height, show]);
 
-  const handleResize = (direction, e) => {
+  const handleResize = (
+    direction: string | string[],
+    e: ReactMouseEvent<HTMLDivElement>
+  ) => {
     e.preventDefault();
     e.stopPropagation();
 
@@ -45,7 +49,7 @@ export default function ResizableBox({
       setShow(true);
     }
 
-    const onMouseMove = (e) => {
+    const onMouseMove = (e: { clientX: number; clientY: number }) => {
       let newWidth = startWidth;
       let newHeight = startHeight;
       let newX = startXPos;
@@ -85,7 +89,12 @@ export default function ResizableBox({
   const handleClasses = "absolute w-4 h-4 bg-white border-2 border-black z-50";
 
   // === DRAGGING ===
-  const handleDragMouseDown = (e) => {
+  interface DragEvent extends MouseEvent {
+    clientX: number;
+    clientY: number;
+  }
+
+  const handleDragMouseDown = (e: ReactMouseEvent<HTMLDivElement>) => {
     e.preventDefault();
 
     const startX = e.clientX;
@@ -93,7 +102,7 @@ export default function ResizableBox({
     const startLeft = position.x;
     const startTop = position.y;
 
-    const onMouseMove = (e) => {
+    const onMouseMove = (e: DragEvent) => {
       const newX = startLeft + (e.clientX - startX);
       const newY = startTop + (e.clientY - startY);
       if (newX || newY) {
@@ -103,12 +112,12 @@ export default function ResizableBox({
     };
 
     const onMouseUp = () => {
-      window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("mouseup", onMouseUp);
+      window.removeEventListener("mousemove", onMouseMove as EventListener);
+      window.removeEventListener("mouseup", onMouseUp as EventListener);
     };
 
-    window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("mouseup", onMouseUp);
+    window.addEventListener("mousemove", onMouseMove as EventListener);
+    window.addEventListener("mouseup", onMouseUp as EventListener);
   };
 
   return (
