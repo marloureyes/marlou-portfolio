@@ -72,7 +72,7 @@ export default function Home() {
               <ResizableBox
                 width={219}
                 height={58}
-                src="/images/Projects.png"
+                src="/images/projects.png"
                 alt="Projects"
                 show={showModal}
                 setShow={setShowModal}
