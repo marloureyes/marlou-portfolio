@@ -2,7 +2,6 @@
 import Header from "@/components/Header";
 import ResizableBox from "@/components/ResizeableBox";
 import Image from "next/image";
-import Link from "next/link";
 import { techLogos } from "@/constants/imageMap";
 import ImageShowcase from "@/components/ImageShowcase";
 import { Button } from "@/components/ui/button";

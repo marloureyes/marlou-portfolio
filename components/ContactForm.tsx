@@ -45,6 +45,8 @@ const ContactForm = () => {
     },
   });
 
+  const { reset } = form;
+
   const onSubmit = async (formValues: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
 
@@ -78,6 +80,7 @@ const ContactForm = () => {
 
       if (response.ok) {
         toast.success("Message sent successfully!");
+        reset();
       } else {
         toast.error(`Error ${result.status}`, {
           description: result?.error?.message || "Error sending message",
