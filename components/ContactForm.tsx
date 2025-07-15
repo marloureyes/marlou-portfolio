@@ -123,9 +123,9 @@ const ContactForm = () => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="flex flex-col space-y-4"
+          className="flex flex-col space-y-4 w-full ml-auto max-w-4xl"
         >
-          <div className="grid grid-cols-[1fr_2fr]  gap-3">
+          <div className="grid md:grid-cols-[1fr_1fr]  gap-3">
             <FormField
               control={form.control}
               name="name"

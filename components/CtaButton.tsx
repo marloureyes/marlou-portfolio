@@ -4,10 +4,15 @@ import { Button } from "./ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
-const CtaButton = () => {
+const CtaButton = ({ addClasses }: { addClasses?: string }) => {
   const [isHovered, setIsHovered] = React.useState(false);
   return (
-    <Link href="/files/Marlou-cv.pdf" target="_blank" rel="noopener noreferrer">
+    <Link
+      href="/files/Marlou-cv.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      className={addClasses}
+    >
       <Button
         className="font-secondary-bold cursor-pointer shadow-[3px_3px_0_0_rgba(0,0,0,0.15)] hover:bg-black hover:shadow-[3px_3px_0_0_rgba(0,0,0,0.25)] transition-all  duration-400 ease-in-out rounded-lg  active:translate-y-[3px] active:translate-x-[3px] active:shadow-none"
         onMouseEnter={() => setIsHovered(true)}

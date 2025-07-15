@@ -33,7 +33,7 @@ export default function ResizableBox({
 
   const handleResize = (
     direction: string | string[],
-    e: ReactMouseEvent<HTMLDivElement>
+    e: ReactMouseEvent<HTMLSpanElement>
   ) => {
     e.preventDefault();
     e.stopPropagation();
@@ -86,7 +86,8 @@ export default function ResizableBox({
     window.addEventListener("mouseup", onMouseUp);
   };
 
-  const handleClasses = "absolute w-4 h-4 bg-white border-2 border-black z-50";
+  const handleClasses =
+    "absolute w-4 h-4 bg-white border-2 border-black z-200 inline-block";
 
   // === DRAGGING ===
   interface DragEvent extends MouseEvent {
@@ -94,7 +95,7 @@ export default function ResizableBox({
     clientY: number;
   }
 
-  const handleDragMouseDown = (e: ReactMouseEvent<HTMLDivElement>) => {
+  const handleDragMouseDown = (e: ReactMouseEvent<HTMLSpanElement>) => {
     e.preventDefault();
 
     const startX = e.clientX;
@@ -121,62 +122,60 @@ export default function ResizableBox({
   };
 
   return (
-    <>
-      <div
-        ref={boxRef}
-        className="relative border-2 border-black cursor-move select-none"
-        onMouseDown={handleDragMouseDown}
-        style={{
-          top: `${position.y}px`,
-          left: `${position.x}px`,
-          width: `${size.width}px`,
-          height: `${size.height}px`,
-        }}
-      >
-        <Image
-          src={src}
-          width={size.width}
-          height={size.height}
-          className="w-full h-full object-fill pointer-events-none"
-          alt={alt}
-        />
+    <span
+      ref={boxRef}
+      className="relative hidden lg:inline-block border-2 border-black cursor-move select-none"
+      onMouseDown={handleDragMouseDown}
+      style={{
+        top: `${position.y}px`,
+        left: `${position.x}px`,
+        width: `${size.width}px`,
+        height: `${size.height}px`,
+      }}
+    >
+      <Image
+        src={src}
+        width={size.width}
+        height={size.height}
+        className="w-full h-full object-fill pointer-events-none"
+        alt={alt}
+      />
 
-        {/* Corners */}
-        <div
-          className={`${handleClasses} top-0 left-0 -mt-2 -ml-2 cursor-nwse-resize`}
-          onMouseDown={(e) => handleResize("top left", e)}
-        />
-        <div
-          className={`${handleClasses} top-0 right-0 -mt-2 -mr-2 cursor-nesw-resize`}
-          onMouseDown={(e) => handleResize("top right", e)}
-        />
-        <div
-          className={`${handleClasses} bottom-0 left-0 -mb-2 -ml-2 cursor-nesw-resize`}
-          onMouseDown={(e) => handleResize("bottom left", e)}
-        />
-        <div
-          className={`${handleClasses} bottom-0 right-0 -mr-2 -mb-2 cursor-nwse-resize`}
-          onMouseDown={(e) => handleResize("bottom right", e)}
-        />
+      {/* Corners */}
+      <span
+        className={`${handleClasses} top-0 left-0 -mt-2 -ml-2 cursor-nwse-resize`}
+        onMouseDown={(e) => handleResize("top left", e)}
+      />
+      <span
+        className={`${handleClasses} top-0 right-0 -mt-2 -mr-2 cursor-nesw-resize`}
+        onMouseDown={(e) => handleResize("top right", e)}
+      />
+      <span
+        className={`${handleClasses} bottom-0 left-0 -mb-2 -ml-2 cursor-nesw-resize`}
+        onMouseDown={(e) => handleResize("bottom left", e)}
+      />
+      <span
+        className={`${handleClasses} bottom-0 right-0 -mr-2 -mb-2 cursor-nwse-resize`}
+        onMouseDown={(e) => handleResize("bottom right", e)}
+      />
 
-        {/* Sides */}
-        <div
-          className={`${handleClasses} top-0 left-1/2 -translate-x-1/2 -mt-2 cursor-ns-resize`}
-          onMouseDown={(e) => handleResize("top", e)}
-        />
-        <div
-          className={`${handleClasses} bottom-0 left-1/2 -translate-x-1/2 -mb-2 cursor-ns-resize`}
-          onMouseDown={(e) => handleResize("bottom", e)}
-        />
-        <div
-          className={`${handleClasses} left-0 top-1/2 -translate-y-1/2 -ml-2 cursor-ew-resize`}
-          onMouseDown={(e) => handleResize("left", e)}
-        />
-        <div
-          className={`${handleClasses} right-0 top-1/2 -translate-y-1/2 -mr-2 cursor-ew-resize`}
-          onMouseDown={(e) => handleResize("right", e)}
-        />
-      </div>
-    </>
+      {/* Sides */}
+      <span
+        className={`${handleClasses} top-0 left-1/2 -translate-x-1/2 -mt-2 cursor-ns-resize`}
+        onMouseDown={(e) => handleResize("top", e)}
+      />
+      <span
+        className={`${handleClasses} bottom-0 left-1/2 -translate-x-1/2 -mb-2 cursor-ns-resize`}
+        onMouseDown={(e) => handleResize("bottom", e)}
+      />
+      <span
+        className={`${handleClasses} left-0 top-1/2 -translate-y-1/2 -ml-2 cursor-ew-resize`}
+        onMouseDown={(e) => handleResize("left", e)}
+      />
+      <span
+        className={`${handleClasses} right-0 top-1/2 -translate-y-1/2 -mr-2 cursor-ew-resize`}
+        onMouseDown={(e) => handleResize("right", e)}
+      />
+    </span>
   );
 }
