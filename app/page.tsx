@@ -106,24 +106,24 @@ export default function Home() {
 
         <section className="flex w-full py-20  lg:py-32 bg-[#f0eeed] rounded-tl-[100] rounded-tr-[100] lg:rounded-tl-[180] lg:rounded-tr-[180]">
           <div className="flex flex-col items-center justify-between gap-20 px-10 md:px-20 lg:px-32">
-            <div className="flex flex-col relative gap-4 items-center text-center">
-              <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl bg-gradient-to-r from-black to-[#919191] bg-clip-text text-transparent leading-[1.2] ">
+            <div className="flex flex-col gap-4 items-center text-center">
+              <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl bg-gradient-to-r from-black to-[#919191] bg-clip-text text-transparent leading-[1.2] relative ">
                 Let&apos;s{" "}
                 <ResizeableBoxStatic
                   text="Build"
-                  addClasses="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl "
+                  addClasses="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl"
+                  spanClass="lg:not-sr-only lg:opacity-0 opacity-100"
                 />
-                <span className="absolute top-2 left-33 sr-only lg:not-sr-only">
-                  <ResizableBox
-                    src="/images/Build.png"
-                    alt="Build"
-                    width={133}
-                    height={46}
-                    show={showModal}
-                    setShow={setShowModal}
-                    reset={reset}
-                  />
-                </span>{" "}
+                <ResizableBox
+                  src="/images/Build.png"
+                  alt="Build"
+                  width={133}
+                  height={46}
+                  show={showModal}
+                  setShow={setShowModal}
+                  reset={reset}
+                  spanClass="absolute top-[18px] left-[197px]"
+                />{" "}
                 Something Beautiful Together
               </h2>
 
@@ -161,22 +161,24 @@ export default function Home() {
                 height={69}
                 className="hidden lg:block xl:hidden"
               />
-              <div className="flex items-center gap-3">
-                <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl text-center leading-tight lg:leading-none lg:sr-only ">
+              <div className="flex items-center gap-3 sm:gap-4">
+                <h2 className="font-black text-4xl sm:text-6xl text-center leading-tight lg:leading-none lg:sr-only ">
                   <ResizeableBoxStatic
                     text="Say Hello"
                     addClasses="bg-gradient-to-r from-black to-[#919191] bg-clip-text text-transparent"
                   />
                 </h2>
-                <ResizableBox
-                  width={253}
-                  height={58}
-                  src="/images/say-hello.png"
-                  alt="Say hello"
-                  show={showModal}
-                  setShow={setShowModal}
-                  reset={reset}
-                />
+                <div className="relative w-[253] mx-auto h-[58px] z-50 hidden lg:block">
+                  <ResizableBox
+                    width={253}
+                    height={58}
+                    src="/images/say-hello.png"
+                    alt="Say hello"
+                    show={showModal}
+                    setShow={setShowModal}
+                    reset={reset}
+                  />
+                </div>
                 <Image
                   src="/icons/hand-wave.png"
                   alt="hand wave"

@@ -1,21 +1,32 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import ResizableBox from "./ResizeableBox";
 import {
-  CarouselNext,
-  CarouselPrevious,
+  // CarouselNext,
+  // CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
+import { Carousel } from "./ui/carousel";
 import { works } from "@/constants/workMap";
 import { cn, sortType } from "@/lib/utils";
-import Link from "next/link";
-import Image from "next/image";
-import { Button } from "./ui/button";
-import { ExternalLink, GitBranchIcon, Palette } from "lucide-react";
+// import Link from "next/link";
+// import Image from "next/image";
+// import { Button } from "./ui/button";
+// import { ExternalLink, GitBranchIcon, Palette } from "lucide-react";
 import ResizeableBoxStatic from "./ResizeableBoxStatic";
 
-const ThingsIMade = ({ showModal, setShowModal, reset }) => {
+interface Props {
+  showModal: boolean;
+  setShowModal: Dispatch<SetStateAction<boolean>>;
+  reset: boolean;
+}
+const ThingsIMade = ({ showModal, setShowModal, reset }: Props) => {
   const rectRef = useRef<SVGRectElement>(null);
   const [api, setApi] = useState<CarouselApi>();
   const [newWorks, setNewWorks] = useState<WorkItem[]>([]);

@@ -9,7 +9,7 @@ import { Menu } from "lucide-react";
 const Header = () => {
   return (
     <header className="flex items-center justify-between w-full px-6 py-6 sm:px-20 sm:py-16 absolute top-0 left-0 z-10 ">
-      <div className="flex items-center gap-12 w-[140]">
+      <div className="flex items-center gap-12">
         <Image
           src="/logos/site-logo.svg"
           alt="Lou Logo"

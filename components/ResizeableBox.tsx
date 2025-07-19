@@ -1,4 +1,5 @@
 "use client";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useState, useRef, Dispatch, SetStateAction, useEffect } from "react";
 import type { MouseEvent as ReactMouseEvent } from "react";
@@ -9,6 +10,7 @@ interface Props {
   alt: string;
   reset: boolean;
   show: boolean;
+  spanClass?: string;
   setShow: Dispatch<SetStateAction<boolean>>;
 }
 export default function ResizableBox({
@@ -18,6 +20,7 @@ export default function ResizableBox({
   alt,
   show,
   reset,
+  spanClass,
   setShow,
 }: Props) {
   const boxRef = useRef(null);
@@ -124,7 +127,10 @@ export default function ResizableBox({
   return (
     <span
       ref={boxRef}
-      className="relative hidden lg:inline-block border-2 border-black cursor-move select-none"
+      className={cn(
+        "relative hidden lg:inline-block border-2 border-black cursor-move select-none",
+        spanClass
+      )}
       onMouseDown={handleDragMouseDown}
       style={{
         top: `${position.y}px`,
