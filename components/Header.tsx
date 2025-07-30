@@ -3,24 +3,31 @@ import React from "react";
 import CtaButton from "./CtaButton";
 import { socialLinks } from "@/constants/socialLinks";
 import AnimatedLink from "./AnimatedLink";
-import { Sheet, SheetTrigger, SheetContent } from "./ui/sheet";
+import { Sheet, SheetTrigger, SheetContent, SheetTitle } from "./ui/sheet";
 import { Menu } from "lucide-react";
+import Logo from "./Logo";
 
 const Header = () => {
   return (
     <header className="flex items-center justify-between w-full px-6 py-6 sm:px-20 sm:py-16 absolute top-0 left-0 z-10 ">
       <div className="flex items-center gap-12">
-        <Image
-          src="/logos/site-logo.svg"
-          alt="Lou Logo"
-          width={172}
-          height={57}
-        />
-        <CtaButton addClasses={"hidden lg:flex"} />
+        <Logo className="w-10 h-auto" />
+        <CtaButton addClasses="hidden lg:flex" />
+      </div>
+      <div className="items-center gap-8 hidden lg:flex">
+        {socialLinks.map((item) => (
+          <AnimatedLink
+            key={item.name}
+            name={item.name}
+            href={item.url}
+            color={item.color}
+          />
+        ))}
       </div>
       <div className="lg:hidden">
         <Sheet>
-          <SheetTrigger asChild>
+          <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+          <SheetTrigger aria-label="Toggle Navigation" asChild>
             <Menu />
           </SheetTrigger>
           <SheetContent
@@ -29,8 +36,8 @@ const Header = () => {
           >
             <div>
               <Image
-                src="/logos/site-logo.svg"
-                alt="Lou Logo"
+                src="/images/logo-right-text.png"
+                alt="Marlou Logo"
                 width={130}
                 height={0}
                 className="mb-8"
@@ -51,16 +58,6 @@ const Header = () => {
             <CtaButton />
           </SheetContent>
         </Sheet>
-      </div>
-      <div className="items-center gap-10 hidden lg:flex">
-        {socialLinks.map((item) => (
-          <AnimatedLink
-            key={item.name}
-            name={item.name}
-            href={item.url}
-            color={item.color}
-          />
-        ))}
       </div>
     </header>
   );

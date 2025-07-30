@@ -7,6 +7,7 @@ export const works = [
     image: {
       imageUrl: "/images/netflix-clone.png",
       altText: "Screenshot of netflix clone",
+      isSmallImage: false,
     },
     type: "front-end",
   },
@@ -17,6 +18,7 @@ export const works = [
     image: {
       imageUrl: "/images/gunita-webdesign.png",
       altText: "Gunita WebDesign",
+      isSmallImage: false,
     },
     type: "graphic-design",
   },
@@ -27,6 +29,7 @@ export const works = [
     image: {
       imageUrl: "/images/aquateria.png",
       altText: "Aquateria Branding",
+      isSmallImage: true,
     },
     type: "graphic-design",
   },
@@ -38,17 +41,31 @@ export const works = [
     image: {
       imageUrl: "/images/todo-application.png",
       altText: "Todo Application",
+      isSmallImage: true,
     },
     type: "front-end",
   },
   {
-    name: "marlou-portoflio",
-    title: "My Own Portfolio Website",
+    name: "marlou-portfolio",
+    title: "My Personal Website",
     link: "https://github.com/marloureyes/marlou-portfolio",
     demoLink: "https://marlou-portfolio.vercel.app",
     image: {
       imageUrl: "/images/marlou-portfolio.png",
       altText: "Screenshot of my portfolio",
+      isSmallImage: false,
+    },
+    type: "front-end",
+  },
+  {
+    name: "john-portfolio",
+    title: "John Portfolio Site",
+    link: "https://github.com/marloureyes/john-personal-website",
+    demoLink: "https://marloureyes.github.io/john-personal-website/",
+    image: {
+      imageUrl: "/images/john-personal-website.png",
+      altText: "Full Web Screenshot of my john website",
+      isSmallImage: false,
     },
     type: "front-end",
   },

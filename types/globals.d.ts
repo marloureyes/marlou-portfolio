@@ -7,6 +7,7 @@ type WorkItem = {
   image: {
     imageUrl: string;
     altText: string;
+    isSmallImage: boolean;
   };
   isSelected?: boolean;
 };

@@ -10,7 +10,10 @@ interface Props {
   alt: string;
   reset: boolean;
   show: boolean;
+  addImageClass?: string;
   spanClass?: string;
+  xAxis?: number;
+  yAxis?: number;
   setShow: Dispatch<SetStateAction<boolean>>;
 }
 export default function ResizableBox({
@@ -21,18 +24,21 @@ export default function ResizableBox({
   show,
   reset,
   spanClass,
+  addImageClass,
   setShow,
+  xAxis,
+  yAxis,
 }: Props) {
   const boxRef = useRef(null);
   const [size, setSize] = useState({ width: width, height: height });
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState({ x: xAxis || 0, y: yAxis || 0 });
 
   useEffect(() => {
     if (reset) {
       setSize({ width: width, height: height });
-      setPosition({ x: 0, y: 0 });
+      setPosition({ x: xAxis || 0, y: yAxis || 0 });
     }
-  }, [reset, width, height, show]);
+  }, [reset, width, height, show, xAxis, yAxis]);
 
   const handleResize = (
     direction: string | string[],
@@ -90,7 +96,7 @@ export default function ResizableBox({
   };
 
   const handleClasses =
-    "absolute w-4 h-4 bg-white border-2 border-black z-200 inline-block";
+    "absolute w-4 h-4 bg-white border-2 border-black z-50 inline-block";
 
   // === DRAGGING ===
   interface DragEvent extends MouseEvent {
@@ -126,9 +132,10 @@ export default function ResizableBox({
 
   return (
     <span
+      aria-hidden
       ref={boxRef}
       className={cn(
-        "relative hidden lg:inline-block border-2 border-black cursor-move select-none",
+        "absolute hidden lg:inline-block border-2 border-black cursor-move select-none",
         spanClass
       )}
       onMouseDown={handleDragMouseDown}
@@ -143,7 +150,10 @@ export default function ResizableBox({
         src={src}
         width={size.width}
         height={size.height}
-        className="w-full h-full object-fill pointer-events-none"
+        className={cn(
+          "w-full h-full object-fill pointer-events-none ",
+          addImageClass
+        )}
         alt={alt}
       />
 

@@ -185,10 +185,11 @@ const ContactForm = () => {
               type="submit"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
-              className="bg-black ml-6 px-6 text-2xl py-6 font-secondary-bold cursor-pointer shadow-[3px_3px_0_0_rgba(0,0,0,0.15)] hover:bg-black hover:shadow-[3px_3px_0_0_rgba(0,0,0,0.25)] transition-all  duration-400 ease-in-out rounded-2xl  active:translate-y-[3px] active:translate-x-[3px] active:shadow-none"
+              className="bg-black ml-6 px-6 text-2xl py-6 font-secondary-bold cursor-pointer shadow-[3px_3px_0_0_rgba(0,0,0,0.15)] hover:bg-black hover:shadow-[3px_3px_0_0_rgba(0,0,0,0.25)] transition-all  duration-400 ease-in-out rounded-2xl  active:translate-y-[3px] active:translate-x-[3px] active:shadow-none hover:scale-105"
             >
               Submit
               <Image
+                aria-hidden
                 src={
                   !isHovered
                     ? "/icons/rocket-colored-no-fire.png"

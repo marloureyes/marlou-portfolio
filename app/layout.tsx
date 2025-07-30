@@ -22,11 +22,11 @@ const ConsolasBold = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Marlou | Front-End Developer & Designer",
+  title: "Marlou | Front-End Developer & Graphic Designer",
   description:
     "The personal portfolio of Marlou, a passionate front-end developer and graphic designer focused on creative and user-friendly web solutions.",
   openGraph: {
-    title: "Marlou | Front-End Developer & Designer",
+    title: "Marlou | Front-End Developer & Graphic Designer",
     description:
       "Explore Marlou's creative work in web development and design.",
     url: "https://yourdomain.com",

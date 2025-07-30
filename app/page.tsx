@@ -23,50 +23,54 @@ export default function Home() {
     <div className="items-center justify-items-center gap-16 w-full">
       <Header />
       <main className="flex flex-col w-full items-center">
-        <section className="items-center flex flex-col px-6 sm:px-20 bg-[#f0eeed] rounded-bl-[100] lg:rounded-bl-[250] w-full pt-32 pb-26 md:py-40 gap-9 ">
-          <Image
-            src="/images/marlou.png"
-            alt="Profile Picture"
-            width={180}
-            height={180}
-            className="rounded-full aspect-square object-cover border-white border-8"
-          />
-          <div className="flex flex-col gap-4 mt-4 w-full">
-            <h1 className="font-bold text-4xl sm:text-6xl lg:text-7xl xl:text-8xl text-center leading-tight lg:leading-none">
-              Hi, I&apos;m{" "}
-              <span className="bg-black text-white px-5">marlou</span>
-              <br />
-              <span className="font-secondary text-3xl sm:text-5xl lg:text-6xl xl:text-7xl">
-                &lt;front-end developer/&gt;
-              </span>{" "}
-              <span className="relative inline-block">
-                <span className=" bg-white h-[20px] w-[40px]  sm:h-[40px] sm:w-[80px] xl:h-[50px] xl:w-[110px] absolute bottom-1 sm:bottom-2 lg:bottom-1 -right-4"></span>
-                <span className="relative z-10">&amp;&amp; </span>
-              </span>
-              <br />
-              <ResizeableBoxStatic
-                text="Graphic Designer"
-                addClasses="font-black text-3xl sm:text-6xl bg-gradient-to-r from-black to-[#919191] bg-clip-text text-transparent"
+        <section className="w-full">
+          <div className=" bg-[#f0eeed] sm:px-20 rounded-bl-[100] lg:rounded-bl-[250] ">
+            <div className="items-center flex flex-col px-6  w-full pt-32 pb-26 md:py-40 gap-9 2xl:max-w-7xl mx-auto">
+              <Image
+                src="/images/marlou.png"
+                alt="Profile Picture"
+                width={180}
+                height={180}
+                className="rounded-full aspect-square object-cover border-white border-8"
               />
-            </h1>
-            <div className="relative w-[700] mx-auto h-24 z-50 hidden lg:block">
-              <ResizableBox
-                width={681}
-                height={86}
-                src="/images/graphic-designer.png"
-                alt="Graphic Designer"
-                show={showModal}
-                setShow={setShowModal}
-                reset={reset}
-              />
+              <div className="flex flex-col gap-4 mt-4 w-full">
+                <h1 className="font-bold text-4xl sm:text-6xl lg:text-7xl xl:text-8xl text-center leading-tight lg:leading-none">
+                  Hi, I&apos;m{" "}
+                  <span className="bg-black text-white px-5">marlou</span>
+                  <br />
+                  <span className="font-secondary text-3xl sm:text-5xl lg:text-6xl xl:text-7xl">
+                    &lt;front-end developer/&gt;
+                  </span>{" "}
+                  <span className="relative inline-block">
+                    <span className=" bg-white h-[20px] w-[40px]  sm:h-[40px] sm:w-[80px] xl:h-[50px] xl:w-[110px] absolute bottom-1 sm:bottom-2 lg:bottom-1 -right-4"></span>
+                    <span className="relative z-10">&amp;&amp; </span>
+                  </span>
+                  <br />
+                  <ResizeableBoxStatic
+                    text="Graphic Designer"
+                    addClasses="font-black text-3xl sm:text-6xl bg-gradient-to-r from-black to-[#919191] bg-clip-text text-transparent"
+                  />
+                </h1>
+                <div className="relative w-[700] mx-auto h-24 z-50 hidden lg:block">
+                  <ResizableBox
+                    width={681}
+                    height={86}
+                    src="/images/graphic-designer.png"
+                    alt="Graphic Designer"
+                    show={showModal}
+                    setShow={setShowModal}
+                    reset={reset}
+                  />
+                </div>
+                <p className=" text-center text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl lg:ml-[400px]">
+                  turning ideas into interactive and beautiful designs.
+                </p>
+              </div>
             </div>
-            <p className=" text-center text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl lg:ml-[400px]">
-              turning ideas into interactive and beautiful designs.
-            </p>
           </div>
         </section>
         <section className="bg-[#f0eeed] w-full">
-          <div className="overflow-hidden whitespace-nowrap w-full h-[10rem] md:h-[23rem] bg-white  lg:rounded-tr-[250] lg:rounded-bl-[250]">
+          <div className="overflow-hidden whitespace-nowrap w-full h-[10rem] md:h-[23rem] bg-white rounded-tr-[100] rounded-bl-[100] lg:rounded-tr-[250] lg:rounded-bl-[250]">
             <div className="animate-marquee flex justify-between items-center gap-6 md:gap-20 w-full h-full">
               {techLogos.map(({ src, alt }) => (
                 <ImageShowcase
@@ -100,33 +104,30 @@ export default function Home() {
           setShowModal={setShowModal}
           reset={reset}
         />
-        {/* <div className="bg-[#f0eeed] w-full">
-          <div className="flex justify-between w-full h-32 bg-white rounded-tl-[250] "></div>
-        </div> */}
-
-        <section className="flex w-full py-20  lg:py-32 bg-[#f0eeed] rounded-tl-[100] rounded-tr-[100] lg:rounded-tl-[180] lg:rounded-tr-[180]">
+        <section className="flex w-full py-20 mt-24 lg:mt-18 lg:py-32 bg-[#f0eeed] rounded-tl-[100] rounded-tr-[100] lg:rounded-tl-[180] lg:rounded-tr-[180]">
           <div className="flex flex-col items-center justify-between gap-20 px-10 md:px-20 lg:px-32">
             <div className="flex flex-col gap-4 items-center text-center">
-              <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl bg-gradient-to-r from-black to-[#919191] bg-clip-text text-transparent leading-[1.2] relative ">
+              <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl bg-gradient-to-r from-black to-[#919191] bg-clip-text text-transparent leading-[1.2]">
                 Let&apos;s{" "}
-                <ResizeableBoxStatic
-                  text="Build"
-                  addClasses="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl"
-                  spanClass="lg:not-sr-only lg:opacity-0 opacity-100"
-                />
-                <ResizableBox
-                  src="/images/Build.png"
-                  alt="Build"
-                  width={133}
-                  height={46}
-                  show={showModal}
-                  setShow={setShowModal}
-                  reset={reset}
-                  spanClass="absolute top-[18px] left-[197px]"
-                />{" "}
+                <span className="relative">
+                  <ResizeableBoxStatic
+                    text="Build"
+                    spanClass="lg:not-sr-only lg:opacity-0 opacity-100"
+                  />
+                  <ResizableBox
+                    src="/images/Build.png"
+                    alt="Build"
+                    width={133}
+                    height={46}
+                    show={showModal}
+                    setShow={setShowModal}
+                    reset={reset}
+                    yAxis={13}
+                    xAxis={5}
+                  />{" "}
+                </span>
                 Something Beautiful Together
               </h2>
-
               <p className="sm:text-md md:text-base lg:text-lg xl:text-xl">
                 Whether you need a sleek website or standout visuals, I&apos;ve
                 got you covered{" "}
