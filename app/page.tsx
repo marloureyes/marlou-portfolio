@@ -213,7 +213,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
-      <div className="fixed top-0 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none">
+      <div className="fixed top-0 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none hidden lg:block">
         <div
           className={`flex transition-all duration-500 ease-out  ${
             showModal

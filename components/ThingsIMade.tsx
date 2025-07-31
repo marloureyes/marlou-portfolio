@@ -184,7 +184,7 @@ const ThingsIMade = ({ showModal, setShowModal, reset }: Props) => {
         </div>
         <Carousel
           setApi={setApi}
-          className="w-full max-w-6xl mx-auto relative group"
+          className="w-full max-w-6xl mx-auto relative group cursor-grab"
           plugins={[Autoplay({ delay: 20000 })]}
         >
           <CarouselPrevious className="opacity-100 lg:opacity-0 disabled:opacity-0 group-hover:opacity-100 group-hover:disabled:opacity-50 transition-all duration-300 ease-in-out" />
